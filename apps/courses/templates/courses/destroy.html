@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+        <title>Courses</title>
+        {%load static%}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+	<body>
+        <div class="container">
+            <h1>　Are you sure?  You want to delete this?　</h1>
+         
+            <p>Name: {{ course.name }}</p>
+            <p>Description: {{ course.des }}</p>
+            
+            <a href="/courses/">No</a>
+            <form action="/courses/destroy/{{course.id}}" method='post'>
+                    {% csrf_token %}   
+            <input type="submit" value="YES! I want to delete this!">
+            </form>        
+
+        </div>
+	</body>
+</html>
